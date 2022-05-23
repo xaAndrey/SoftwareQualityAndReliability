@@ -10,18 +10,18 @@ struct Class
 {
     string nameClass;
     string accessModeClass;
-    list <string> annatationsClass;
+    // list <string> annatationsClass;
     list <string> bodyClassStr;
     int numberClass;
     int countMethod;
     int countBodyStrClass;
-    //    struct Annitatins *annatationsClass;
+    struct Annitatins *annatationsClass;
 };
 
-//struct Annotations
-//{
-//    QString name;
-//};
+struct Annotations
+{
+    string name;
+};
 
 struct Methods
 {
@@ -29,15 +29,15 @@ struct Methods
     string accessModeMethod;
     string modifierMrthod;
     string typeValueMthod;
-    struct Argements* argumentsMehod;
-    list <string> annatationsMethod;
+    struct Arguments* argumentsMehod;
+    // list <string> annatationsMethod;
     list <string> bodyMethodStr;
     int numberMethod;
     int countBodyStrMethod;
-
+    struct Annotations* annatationsMethods;
 };
 
-struct Argements
+struct Arguments
 {
     string name;
     string type;
@@ -54,3 +54,18 @@ struct Interface
     list <string> bodyInterfaceStr;
     int numberInterface;
 };
+
+/*! Копирует данные из файла в массив строк
+ * \param
+ */
+void copyData();
+
+/*! Разбиавает код на элементы
+ * \param
+ */
+void splitCodeIntoElements();
+
+/*! Формирует документ xml расширения
+ * \param
+ */
+void formingXMLDocumnt();
