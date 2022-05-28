@@ -6,53 +6,122 @@
 
 using namespace std;
 
-struct Class
+class Annotations
 {
+private:
+    string name;
+
+public:
+    void setName(string name);
+
+    string getName();
+};
+
+
+class Class
+{
+private:
     string nameClass;
     string accessModeClass;
-    // list <string> annatationsClass;
     list <string> bodyClassStr;
     int numberClass;
     int countMethod;
     int countBodyStrClass;
-    struct Annitatins *annatationsClass;
+    Annotations annotationsClass;
+
+public:
+    void setNameCLass(string nameClass);
+    void setAccessModeClass(string accessModeClass);
+    void setBodyClassStr(list <string> bodyClassStr);
+    void setNumberClass(int numberClass);
+    void setCountMethod(int countMethod);
+    void setCountBodyStrClass(int countBodyStrClass);
+    void setAnnotationsClass(Annotations annatationsClass);
+
+    string getNameClass();
+    string getAsccessModelClass();
+    list <string> getBodyClass();
+    int getNumberClass();
+    int getCountMethod();
+    int getCountBodyStrClass();
+    Annotations getAnnotationsClass();
 };
 
-struct Annotations
+class Arguments
 {
+private:
     string name;
+    string type;
+
+public:
+    void setName(string name);
+    void setType(string type);
+
+    string getName();
+    string getType();
 };
 
-struct Methods
+class Methods
 {
+private:
     string nameMethod;
     string accessModeMethod;
-    string modifierMrthod;
-    string typeValueMthod;
-    struct Arguments* argumentsMehod;
-    // list <string> annatationsMethod;
+    string modifierMethod;
+    string typeValueMethod;
+    Arguments argumentsMethod;
     list <string> bodyMethodStr;
     int numberMethod;
     int countBodyStrMethod;
-    struct Annotations* annatationsMethods;
+    Annotations annatationsMethods;
+
+public:
+    void setNameMethods(string nameMethod);
+    void setAccessModeMethod(string accessModeMethod);
+    void setModifierMethod(string modifierMethod);
+    void setTypeValueMethod(string typeValueMethod);
+    void setArgumentsMethod(Arguments argumentsMethod);
+    void setBodyMethodStr(list <string> bodyMethodStr);
+    void setNumberMethod(int numberMethod);
+    void setCountBodyStrMethod(int countBodyStrMethod);
+    void setAnnatationsMethods(Annotations annatationsMethods);
+
+    string getNameMethods();
+    string getAccessModeMethod();
+    string getModifierMethod();
+    string getTypeValueMethod();
+    Arguments getArgumentsMethod();
+    list <string> getBodyMethodStr();
+    int getNumberMethod();
+    int getCountBodyStrMethod();
+    Annotations getAnnotationsMethods();
 };
 
-struct Arguments
+class Improts
 {
+private:
     string name;
-    string type;
+
+public:
+    void setName(string name);
+
+    string getName();
 };
 
-struct Improts
+class Interface
 {
-    string name;
-};
-
-struct Interface
-{
+private:
     string name;
     list <string> bodyInterfaceStr;
     int numberInterface;
+
+public:
+    void setName(string name);
+    void setBodyInterfaceStr(list <string>);
+    void setNumberInterface(int numberIterface);
+
+    string getName();
+    list <string> getBodyInterfaceStr();
+    int getNumberInterface();
 };
 
 /*! Копирует данные из файла в массив строк
