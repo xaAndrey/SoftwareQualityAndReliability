@@ -127,7 +127,7 @@ public:
 /*! Копирует данные из файла в массив строк
  * \param
  */
-void copyData();
+void copyData(string &sourceWay, list <string> &outputArr);
 
 /*! Разбиавает код на элементы
  * \param
