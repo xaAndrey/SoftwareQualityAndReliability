@@ -188,8 +188,22 @@ void selectInterfaceFromTheProgramm()
 
 }
 
-void selectMethodFromTheProgramm()
+void selectMethodFromTheProgramm(Methods &method, vector <string> &sourceVector)
 {
+	// Заглушка
+	sourceVector = { "" };
+	method.setId(0);
+	method.setName("");
+	method.setAccessMode("");
+	method.setModifier("");
+	method.setTypeValue("");
+	method.setArguments("", "");
+	for (int i = 0; i < sourceVector.size(); i++)
+	{
+		method.setBodyStr(sourceVector[i]);
+	}
+	method.setAnnatations("");
+
 	// Увличиваем счетчик методов класса на один
 
 	// Создать экземпляр метода

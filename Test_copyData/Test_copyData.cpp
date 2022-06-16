@@ -8,8 +8,6 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
 
-
-
 namespace TestcopyData
 {
 	TEST_CLASS(TestcopyData)
@@ -105,7 +103,7 @@ namespace TestcopyData
 		}
 
 	private:
-		void AssertEqualListString(list <string> expList, list <string> sourceList)
+		void AssertEqualListString(list <string> &expList, list <string> &sourceList)
 		{
 			Assert::AreEqual(expList.size(), sourceList.size());
 

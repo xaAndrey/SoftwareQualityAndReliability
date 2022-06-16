@@ -441,3 +441,4 @@ FodyWeavers.xsd
 # My gitignore
 *.vcxproj*
 Aspects_tests.xlsx
+Test_selectMethodFromTheProgramm/

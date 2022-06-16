@@ -3,49 +3,10 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <iterator>
+#include <vector>
 
 using namespace std;
-
-class Annotations
-{
-private:
-    string name;
-
-public:
-    void setName(string name);
-
-    string getName();
-};
-
-
-class Class
-{
-private:
-    string nameClass;
-    string accessModeClass;
-    list <string> bodyClassStr;
-    int numberClass;
-    int countMethod;
-    int countBodyStrClass;
-    Annotations annotationsClass;
-
-public:
-    void setNameCLass(string nameClass);
-    void setAccessModeClass(string accessModeClass);
-    void setBodyClassStr(list <string> bodyClassStr);
-    void setNumberClass(int numberClass);
-    void setCountMethod(int countMethod);
-    void setCountBodyStrClass(int countBodyStrClass);
-    void setAnnotationsClass(Annotations annatationsClass);
-
-    string getNameClass();
-    string getAsccessModelClass();
-    list <string> getBodyClass();
-    int getNumberClass();
-    int getCountMethod();
-    int getCountBodyStrClass();
-    Annotations getAnnotationsClass();
-};
 
 class Arguments
 {
@@ -54,82 +15,484 @@ private:
     string type;
 
 public:
-    void setName(string name);
-    void setType(string type);
+    // конструкторы
+    Arguments()
+    {
+        this->name = "";
+        this->type = "";
+    }
 
-    string getName();
-    string getType();
+    Arguments(string name, string type)
+    {
+        this->name = name;
+        this->type = type;
+    }
+
+    // сеттеры
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    void setType(string type)
+    {
+        this->type = type;
+    }
+
+
+    //геттеры
+    string getName()
+    {
+        return this->name;
+    }
+
+    string getType()
+    {
+        return this->type;
+    }
+
+    // перегрузки оператора срванени€ (равенства)
+    friend bool operator == (Arguments &left, Arguments &right)
+    {
+        return (left.name == right.name && left.type == right.type);
+    }
+
+    // перегрузки оператора срванени€ (неравенства)
+    friend bool operator != (Arguments& left, Arguments& right)
+    {
+        return !(left == right);
+    }
+};
+
+class Annotations
+{
+private:
+    string name;
+    list <Arguments> arguments;
+
+public:
+    // конструкторы
+    Annotations()
+    {
+        this->name = "";
+        Arguments tmpArguments = Arguments("", "");
+        this->arguments.push_back(tmpArguments);
+    }
+
+    Annotations(string name)
+    {
+        this->name = name;
+    }
+
+    // сеттеры
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    // геттеры
+    string getName()
+    {
+        return this->name;
+    }
+
+    // перегрузки оператора срванени€ (равенства)
+    friend bool operator== (Annotations& left, Annotations& right)
+    {
+        bool result = left.name == right.name;
+        
+        result = (left.arguments.size() == right.arguments.size()) && result;
+
+        auto iterLeft = left.arguments.begin();
+        auto iterRight = right.arguments.begin();
+
+        for (; iterLeft != left.arguments.end(); iterLeft++, iterRight++)
+        {
+            result = (*iterLeft == *iterRight) && result;
+        }
+
+        return result;
+    }
+
+    // перегрузки оператора срванени€ (неравенства)
+    friend bool operator!= (Annotations& left, Annotations& right)
+    {
+        return !(left == right);
+    }
+};
+
+class Class
+{
+private:
+    int id;
+    string name;
+    string accessMode;
+    list <string> bodyStr;
+    int countMethod;
+    int countBodyStr;
+    list <Annotations> annotations;
+
+public:
+    // сеттеры
+    void setId(int id)
+    {
+        this->id = id;
+    }
+
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    void setAccessMode(string accessMode)
+    {
+        this->accessMode = accessMode;
+    }
+
+    void setBodyStr(list <string> bodyStr)
+    {
+        this->bodyStr = bodyStr;
+    }
+
+    void setCountMethod(int countMethod)
+    {
+        this->countMethod = countMethod;
+    }
+
+    void setCountBodyStr(int countBodyStr)
+    {
+        this->countBodyStr = countBodyStr;
+    }
+
+    void setAnnotations(string annatationsName)
+    {
+        Annotations tmpAnnotations = Annotations(annatationsName);
+        this->annotations.push_back(tmpAnnotations);
+    }
+
+    // геттеры
+    int getId()
+    {
+        return this->id;
+    }
+
+    string getName()
+    {
+        return this->name;
+    }
+
+    string getAsccessModel()
+    {
+        return this->accessMode;
+    }
+
+    list <string> getBodyStr()
+    {
+        return this->bodyStr;
+    }
+
+    int getCountMethod()
+    {
+        return this->countMethod;
+    }
+
+    int getCountBodyStr()
+    {
+        return this->countBodyStr;
+    }
+
+    list <Annotations> getAnnotations()
+    {
+        return this->annotations;
+    }
+
+    // перегрузки оператора срванени€ (равенства)
+    friend bool operator== (Class& left, Class& right)
+    {
+        bool result = left.id == right.id;
+        result = left.name == right.name && result;
+        result = left.accessMode == right.accessMode && result;
+        result = left.countMethod == right.countMethod && result;
+        result = left.countBodyStr == right.countBodyStr && result;
+        
+        result = (left.bodyStr.size() == right.bodyStr.size()) && result;
+        auto iterLeft = left.bodyStr.begin();
+        auto iterRight = right.bodyStr.begin();
+        for (; iterLeft != left.bodyStr.end(); iterLeft++, iterRight++)
+        {
+            result = (*iterLeft == *iterRight) && result;
+        }
+
+        result = left.annotations.size() == right.annotations.size() && result;
+        auto iterLeft1 = left.annotations.begin();
+        auto iterRight1 = right.annotations.begin();
+        for (; iterLeft1 != left.annotations.end(); iterLeft1++, iterRight1++)
+        {
+            result = *iterLeft1 == *iterRight1 && result;
+        }
+
+        return result;
+    }
+
+    // перегрузки оператора срванени€ (неравенства)
+    friend bool operator!= (Class& left, Class& right)
+    {
+        return !(left == right);
+    }
 };
 
 class Methods
 {
 private:
-    string nameMethod;
-    string accessModeMethod;
-    string modifierMethod;
-    string typeValueMethod;
-    Arguments argumentsMethod;
-    list <string> bodyMethodStr;
-    int numberMethod;
-    int countBodyStrMethod;
-    Annotations annatationsMethods;
+    int id;
+    string name;
+    string accessMode;
+    string modifier;
+    string typeValue;
+    list <Arguments> arguments;
+    list <string> bodyStr;
+    list <Annotations> annotations;
 
 public:
-    void setNameMethods(string nameMethod);
-    void setAccessModeMethod(string accessModeMethod);
-    void setModifierMethod(string modifierMethod);
-    void setTypeValueMethod(string typeValueMethod);
-    void setArgumentsMethod(Arguments argumentsMethod);
-    void setBodyMethodStr(list <string> bodyMethodStr);
-    void setNumberMethod(int numberMethod);
-    void setCountBodyStrMethod(int countBodyStrMethod);
-    void setAnnatationsMethods(Annotations annatationsMethods);
+    // сеттеры
+    void setId(int id)
+    {
+        this->id = id;
+    }
 
-    string getNameMethods();
-    string getAccessModeMethod();
-    string getModifierMethod();
-    string getTypeValueMethod();
-    Arguments getArgumentsMethod();
-    list <string> getBodyMethodStr();
-    int getNumberMethod();
-    int getCountBodyStrMethod();
-    Annotations getAnnotationsMethods();
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    void setAccessMode(string accessMode)
+    {
+        this->accessMode = accessMode;
+    }
+
+    void setModifier(string modifier)
+    {
+        this->modifier = modifier;
+    }
+
+    void setTypeValue(string typeValue)
+    {
+        this->typeValue = typeValue;
+    }
+
+    void setArguments(string nameArguments, string typeArguments)
+    {
+        Arguments tmpArguments = Arguments(nameArguments, typeArguments);
+        this->arguments.push_back(tmpArguments);
+    }
+
+    void setBodyStr(string bodyStr)
+    {
+        this->bodyStr.push_back(bodyStr);
+    }
+
+    void setAnnatations(string annatationsName)
+    {
+        Annotations tmpAnnotations = Annotations(annatationsName);
+        this->annotations.push_back(tmpAnnotations);
+    }
+
+    // геттеры
+    int getId()
+    {
+        return this->id;
+    }
+
+    string getName()
+    {
+        return this->name;
+    }
+
+    string getAccessMode()
+    {
+        return this->accessMode;
+    }
+    
+    string getModifier()
+    {
+        return this->modifier;
+    }
+
+    string getTypeValue()
+    {
+        return this->typeValue;
+    }
+
+    list <Arguments> getArguments()
+    {
+        return this->arguments;
+    }
+
+    list <string> getBodyStr()
+    {
+        return this->bodyStr;
+    }
+
+    list <Annotations> getAnnotations()
+    {
+        return this->annotations;
+    }
+
+    // перегрузки оператора срванени€ (равенства)
+    friend bool operator== (Methods& left, Methods& right)
+    {
+        bool result = left.id == right.id;
+        result = left.name == right.name && result;
+        result = left.accessMode == right.accessMode && result;
+        result = left.modifier == right.modifier && result;
+        result = left.typeValue == right.typeValue && result;
+
+        result = (left.arguments.size() == right.arguments.size()) && result;
+        auto iterLeft = left.arguments.begin();
+        auto iterRight = right.arguments.begin();
+        for (; iterLeft != left.arguments.end(); iterLeft++, iterRight++)
+        {
+            result = (*iterLeft == *iterRight) && result;
+        }
+
+        result = (left.bodyStr.size() == right.bodyStr.size()) && result;
+        auto iterLeft1 = left.bodyStr.begin();
+        auto iterRight1 = right.bodyStr.begin();
+        for (; iterLeft1 != left.bodyStr.end(); iterLeft1++, iterRight1++)
+        {
+            result = (*iterLeft1 == *iterRight1) && result;
+        }
+
+        result = (left.annotations.size() == right.annotations.size()) && result;
+        auto iterLeft2 = left.annotations.begin();
+        auto iterRight2 = right.annotations.begin();
+        for (; iterLeft2 != left.annotations.end(); iterLeft2++, iterRight2++)
+        {
+            result = (*iterLeft2 == *iterRight2) && result;
+        }
+
+        return result;
+    }
+
+    // перегрузки оператора срванени€ (неравенства)
+    friend bool operator!= (Methods & left, Methods & right)
+    {
+        return !(left == right);
+    }
 };
 
-class Improts
+class Imports
 {
 private:
+    int id;
     string name;
 
 public:
-    void setName(string name);
+    // сеттеры
+    void setId(int id)
+    {
+        this->id = id;
+    }
 
-    string getName();
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    // геттеры
+    int getId()
+    {
+        return this->id;
+    }
+
+    string getName()
+    {
+        return this->name;
+    }
+
+    // перегрузка оператора сравнени€ (равенства)
+    friend bool operator== (Imports& left, Imports& right)
+    {
+        return (left.name == right.name);
+    }
+
+    // перегрузка оператора сравнени€ (неравенства)
+    friend bool operator!= (Imports& left, Imports& right)
+    {
+        return !(left == right);
+    }
 };
 
 class Interface
 {
 private:
+    int id;
     string name;
-    list <string> bodyInterfaceStr;
-    int numberInterface;
+    list <string> bodyStr;
 
 public:
-    void setName(string name);
-    void setBodyInterfaceStr(list <string>);
-    void setNumberInterface(int numberIterface);
+    // сеттеры
+    void setId(int id)
+    {
+        this->id = id;
+    }
 
-    string getName();
-    list <string> getBodyInterfaceStr();
-    int getNumberInterface();
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    void setBodyStr(list <string> bodyStr)
+    {
+        this->bodyStr = bodyStr;
+    }
+
+    // геттеры
+    int getId()
+    {
+        return this->id;
+    }
+
+    string getName()
+    {
+        return this->name;
+    }
+
+    list <string> getBodyStr()
+    {
+        return this->bodyStr;
+    }
+
+    // перегрузка операторов сравнени€ (равенства)
+    friend bool operator== (Interface& left, Interface& right)
+    {
+        bool result = left.id == right.id;
+        result = (left.name == right.name) && result;
+
+        result = (left.bodyStr.size() == right.bodyStr.size()) && result;
+        auto iterLeft = left.bodyStr.begin();
+        auto iterRight = right.bodyStr.begin();
+        for (; iterLeft != left.bodyStr.end(); iterLeft++, iterRight++)
+        {
+            result = (*iterLeft == *iterRight) && result;
+        }
+
+        return result;
+    }
+
+    // перегрузка операторов сравнени€ (неравенства)
+    friend bool operator!= (Interface& left, Interface& right)
+    {
+        return !(left == right);
+    }
 };
 
-/*!  опирует данные из файла в массив строк
+/*!  опирует данные из файла в массив строк !!!
  * \param
  */
 void copyData(string &sourceWay, list <string> &outputArr);
 
-/*! –азбиавает код на элементы
+/*! –азбиавает код на элементы 
  * \param
  */
 void splitCodeIntoElements();
@@ -159,7 +522,7 @@ void selectClassFromTheProgramm();
  */
 void selectInterfaceFromTheProgramm();
 
-/*! ¬ыдел€ет методы из кода программы
+/*! ¬ыдел€ет методы из кода программы 
  * \param
  */
-void selectMethodFromTheProgramm();
+void selectMethodFromTheProgramm(Methods &method, vector <string> &sourceArr);
