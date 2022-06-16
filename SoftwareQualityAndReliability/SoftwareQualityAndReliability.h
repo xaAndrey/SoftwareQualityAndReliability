@@ -52,9 +52,9 @@ public:
     }
 
     // перегрузки оператора срванения (равенства)
-    friend bool operator == (Arguments &left, Arguments &right)
+    bool operator== (const Arguments &other) const
     {
-        return (left.name == right.name && left.type == right.type);
+        return (this->name == other.name && this->type == other.type);
     }
 
     // перегрузки оператора срванения (неравенства)
@@ -97,16 +97,16 @@ public:
     }
 
     // перегрузки оператора срванения (равенства)
-    friend bool operator== (Annotations& left, Annotations& right)
+    bool operator== (const Annotations& other) const
     {
-        bool result = left.name == right.name;
+        bool result = this->name == other.name;
         
-        result = (left.arguments.size() == right.arguments.size()) && result;
+        result = (this->arguments.size() == other.arguments.size()) && result;
 
-        auto iterLeft = left.arguments.begin();
-        auto iterRight = right.arguments.begin();
+        auto iterLeft = this->arguments.begin();
+        auto iterRight = other.arguments.begin();
 
-        for (; iterLeft != left.arguments.end(); iterLeft++, iterRight++)
+        for (; iterLeft != this->arguments.end(); iterLeft++, iterRight++)
         {
             result = (*iterLeft == *iterRight) && result;
         }
@@ -115,7 +115,7 @@ public:
     }
 
     // перегрузки оператора срванения (неравенства)
-    friend bool operator!= (Annotations& left, Annotations& right)
+    friend const bool operator!= (const Annotations& left, const Annotations& right)
     {
         return !(left == right);
     }
@@ -339,34 +339,34 @@ public:
     }
 
     // перегрузки оператора срванения (равенства)
-    friend bool operator== (Methods& left, Methods& right)
+    bool operator== (const Methods& other) const
     {
-        bool result = left.id == right.id;
-        result = left.name == right.name && result;
-        result = left.accessMode == right.accessMode && result;
-        result = left.modifier == right.modifier && result;
-        result = left.typeValue == right.typeValue && result;
+        bool result = this->id == other.id;
+        result = this->name == other.name && result;
+        result = this->accessMode == other.accessMode && result;
+        result = this->modifier == other.modifier && result;
+        result = this->typeValue == other.typeValue && result;
 
-        result = (left.arguments.size() == right.arguments.size()) && result;
-        auto iterLeft = left.arguments.begin();
-        auto iterRight = right.arguments.begin();
-        for (; iterLeft != left.arguments.end(); iterLeft++, iterRight++)
+        result = (this->arguments.size() == other.arguments.size()) && result;
+        auto iterLeft = this->arguments.begin();
+        auto iterRight = other.arguments.begin();
+        for (; iterLeft != this->arguments.end(); iterLeft++, iterRight++)
         {
             result = (*iterLeft == *iterRight) && result;
         }
 
-        result = (left.bodyStr.size() == right.bodyStr.size()) && result;
-        auto iterLeft1 = left.bodyStr.begin();
-        auto iterRight1 = right.bodyStr.begin();
-        for (; iterLeft1 != left.bodyStr.end(); iterLeft1++, iterRight1++)
+        result = (this->bodyStr.size() == other.bodyStr.size()) && result;
+        auto iterLeft1 = this->bodyStr.begin();
+        auto iterRight1 = other.bodyStr.begin();
+        for (; iterLeft1 != this->bodyStr.end(); iterLeft1++, iterRight1++)
         {
             result = (*iterLeft1 == *iterRight1) && result;
         }
 
-        result = (left.annotations.size() == right.annotations.size()) && result;
-        auto iterLeft2 = left.annotations.begin();
-        auto iterRight2 = right.annotations.begin();
-        for (; iterLeft2 != left.annotations.end(); iterLeft2++, iterRight2++)
+        result = (this->annotations.size() == other.annotations.size()) && result;
+        auto iterLeft2 = this->annotations.begin();
+        auto iterRight2 = other.annotations.begin();
+        for (; iterLeft2 != this->annotations.end(); iterLeft2++, iterRight2++)
         {
             result = (*iterLeft2 == *iterRight2) && result;
         }
@@ -517,12 +517,12 @@ void selectImportsFromTheProgramm();
  */
 void selectClassFromTheProgramm();
 
-/*! Выделяет интерфейсы из кода программы
+/*! Выделяет интерфейсы из кода программы 
  * \param
  */
 void selectInterfaceFromTheProgramm();
 
-/*! Выделяет методы из кода программы 
+/*! Выделяет методы из кода программы !!?
  * \param
  */
 void selectMethodFromTheProgramm(Methods &method, vector <string> &sourceArr);
