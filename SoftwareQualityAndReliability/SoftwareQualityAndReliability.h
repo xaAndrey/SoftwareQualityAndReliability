@@ -58,9 +58,9 @@ public:
     }
 
     // перегрузки оператора срванения (неравенства)
-    friend bool operator != (Arguments& left, Arguments& right)
+    bool operator!= (const Arguments &other) const
     {
-        return !(left == right);
+        return !(*this == other);
     }
 };
 
@@ -115,9 +115,9 @@ public:
     }
 
     // перегрузки оператора срванения (неравенства)
-    friend const bool operator!= (const Annotations& left, const Annotations& right)
+    bool operator!= (const Annotations& other) const
     {
-        return !(left == right);
+        return !(*this == other);
     }
 };
 
@@ -207,26 +207,26 @@ public:
     }
 
     // перегрузки оператора срванения (равенства)
-    friend bool operator== (Class& left, Class& right)
+    bool operator== (const Class& other) const
     {
-        bool result = left.id == right.id;
-        result = left.name == right.name && result;
-        result = left.accessMode == right.accessMode && result;
-        result = left.countMethod == right.countMethod && result;
-        result = left.countBodyStr == right.countBodyStr && result;
+        bool result = this->id == other.id;
+        result = this->name == other.name && result;
+        result = this->accessMode == other.accessMode && result;
+        result = this->countMethod == other.countMethod && result;
+        result = this->countBodyStr == other.countBodyStr && result;
         
-        result = (left.bodyStr.size() == right.bodyStr.size()) && result;
-        auto iterLeft = left.bodyStr.begin();
-        auto iterRight = right.bodyStr.begin();
-        for (; iterLeft != left.bodyStr.end(); iterLeft++, iterRight++)
+        result = (this->bodyStr.size() == other.bodyStr.size()) && result;
+        auto iterLeft = this->bodyStr.begin();
+        auto iterRight = other.bodyStr.begin();
+        for (; iterLeft != this->bodyStr.end(); iterLeft++, iterRight++)
         {
             result = (*iterLeft == *iterRight) && result;
         }
 
-        result = left.annotations.size() == right.annotations.size() && result;
-        auto iterLeft1 = left.annotations.begin();
-        auto iterRight1 = right.annotations.begin();
-        for (; iterLeft1 != left.annotations.end(); iterLeft1++, iterRight1++)
+        result = this->annotations.size() == other.annotations.size() && result;
+        auto iterLeft1 = this->annotations.begin();
+        auto iterRight1 = other.annotations.begin();
+        for (; iterLeft1 != this->annotations.end(); iterLeft1++, iterRight1++)
         {
             result = *iterLeft1 == *iterRight1 && result;
         }
@@ -235,9 +235,9 @@ public:
     }
 
     // перегрузки оператора срванения (неравенства)
-    friend bool operator!= (Class& left, Class& right)
+    bool operator!= (const Class& other) const
     {
-        return !(left == right);
+        return !(*this == other);
     }
 };
 
@@ -375,9 +375,9 @@ public:
     }
 
     // перегрузки оператора срванения (неравенства)
-    friend bool operator!= (Methods & left, Methods & right)
+    bool operator!= (const Methods & other) const
     {
-        return !(left == right);
+        return !(*this == other);
     }
 };
 
@@ -411,15 +411,15 @@ public:
     }
 
     // перегрузка оператора сравнения (равенства)
-    friend bool operator== (Imports& left, Imports& right)
+    bool operator== (const Imports& other) const
     {
-        return (left.name == right.name);
+        return (this->name == other.name);
     }
 
     // перегрузка оператора сравнения (неравенства)
-    friend bool operator!= (Imports& left, Imports& right)
+    bool operator!= (const Imports& other) const
     {
-        return !(left == right);
+        return !(*this == other);
     }
 };
 
@@ -464,15 +464,15 @@ public:
     }
 
     // перегрузка операторов сравнения (равенства)
-    friend bool operator== (Interface& left, Interface& right)
+    bool operator== (const Interface& other) const
     {
-        bool result = left.id == right.id;
-        result = (left.name == right.name) && result;
+        bool result = this->id == other.id;
+        result = (this->name == other.name) && result;
 
-        result = (left.bodyStr.size() == right.bodyStr.size()) && result;
-        auto iterLeft = left.bodyStr.begin();
-        auto iterRight = right.bodyStr.begin();
-        for (; iterLeft != left.bodyStr.end(); iterLeft++, iterRight++)
+        result = (this->bodyStr.size() == other.bodyStr.size()) && result;
+        auto iterLeft = this->bodyStr.begin();
+        auto iterRight = other.bodyStr.begin();
+        for (; iterLeft != this->bodyStr.end(); iterLeft++, iterRight++)
         {
             result = (*iterLeft == *iterRight) && result;
         }
@@ -481,9 +481,9 @@ public:
     }
 
     // перегрузка операторов сравнения (неравенства)
-    friend bool operator!= (Interface& left, Interface& right)
+    bool operator!= (const Interface& other) const
     {
-        return !(left == right);
+        return !(*this == other);
     }
 };
 
