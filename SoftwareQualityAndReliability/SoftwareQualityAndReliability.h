@@ -442,9 +442,9 @@ public:
         this->name = name;
     }
 
-    void setBodyStr(list <string> bodyStr)
+    void setBodyStr(string bodyStr)
     {
-        this->bodyStr = bodyStr;
+        this->bodyStr.push_back(bodyStr);
     }
 
     // геттеры
@@ -490,7 +490,7 @@ public:
 /*! Копирует данные из файла в массив строк !!!
  * \param
  */
-void copyData(string &sourceWay, list <string> &outputArr);
+void copyData(string&, list <string>&);
 
 /*! Разбиавает код на элементы 
  * \param
@@ -520,9 +520,9 @@ void selectClassFromTheProgramm();
 /*! Выделяет интерфейсы из кода программы 
  * \param
  */
-void selectInterfaceFromTheProgramm();
+void selectInterfaceFromTheProgramm(Interface&, vector <string>&);
 
 /*! Выделяет методы из кода программы !!?
  * \param
  */
-void selectMethodFromTheProgramm(Methods &method, vector <string> &sourceArr);
+void selectMethodFromTheProgramm(Methods&, vector <string>&);

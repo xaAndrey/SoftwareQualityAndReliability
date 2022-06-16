@@ -28,10 +28,10 @@ int main()
 	}
 }
 
-void copyData(string& sourceWay, list <string> &outputArr)
+void copyData(string& sourceWay, list <string> &outputList)
 {
 	// Заглушка
-	outputArr = { "" };
+	outputList= { "" };
 	// Открыть поток + создать указатель
 
 	// Для каждой строки, содеражащийся в файле
@@ -172,8 +172,17 @@ void selectClassFromTheProgramm()
 
 }
 
-void selectInterfaceFromTheProgramm()
+void selectInterfaceFromTheProgramm(Interface& interface, vector <string>& sourceVector)
 {
+	// Заглушка
+	sourceVector = { "" };
+	interface.setId(0);
+	interface.setName("");
+	for (int i = 0; i < sourceVector.size(); i++)
+	{
+		interface.setBodyStr(sourceVector[i]);
+	}
+
 	// Обнуляем счётчик интерфейсов
 
 	// Для каждого interface

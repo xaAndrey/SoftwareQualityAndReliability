@@ -442,4 +442,4 @@ FodyWeavers.xsd
 *.vcxproj*
 Aspects_tests.xlsx
 Test_selectMethodFromTheProgramm/test.txt
-Test_selectInterfaceFromTheProgramm/
+Test_selectInterfaceFromTheProgramm/test.txt
