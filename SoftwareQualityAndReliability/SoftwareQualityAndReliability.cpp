@@ -42,7 +42,7 @@ void copyData(string& sourceWay, list <string> &outputList)
 	// Закрыть поток
 }
 
-void splitCodeIntoElements()
+void splitCodeIntoElements(list<Class>& sourceClasses, list<Method>& sourceMethods, list<Import>& sourceImports, list<Interface>& sourceInterfaces, vector<string>& sourceCode)
 {
 	// Проверяем на наличие import, если они есть
 	{

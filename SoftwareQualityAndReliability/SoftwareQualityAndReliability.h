@@ -513,22 +513,22 @@ public:
  */
 void copyData(string&, list <string>&);
 
-/*! Разбиавает код на элементы 
+/*! Разбиавает код на элементы !!?
  * \param
  */
-void splitCodeIntoElements();
+void splitCodeIntoElements(list<Class>&, list<Method>&, list<Import>&, list<Interface>&, vector<string>&);
 
-/*! Формирует документ xml расширения
+/*! Формирует документ xml расширения !!?
  * \param
  */
 list <string> formingXMLDocument(list<Class>&, list<Method>&, list<Import>&, list<Interface>&);
 
-/*! Выделяет импорты из кода программы
+/*! Выделяет импорты из кода программы !!?
  * \param
  */
 void selectImportsFromTheProgramm(Import&, vector<string>&);
 
-/*! Выделяет классы из кода программы ???
+/*! Выделяет классы из кода программы !!?
  * \param
  */
 void selectClassFromTheProgramm(Class&, vector<string>&);
