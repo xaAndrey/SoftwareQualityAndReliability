@@ -58,8 +58,30 @@ void splitCodeIntoElements()
 
 }
 
-void formingXMLDocumnt()
+list <string> formingXMLDocument(list<Class>& listClass, list<Method>& listMethods, list<Import>& listImports, list<Interface>& listInterfaces)
 {
+	// Заглушка
+	list <string> testList = { "<?xml version=\"1.0\" encoding=\"UTF - 8\"?>",
+		"<imports>",
+		"</import>",
+		"<interfaces>",
+		"</interfaces>",
+		"<classes>",
+		"	<class access Mode = \"public\", name = \"Main\">",
+		"		<annotations>",
+		"			<annotation name = \"Annotations\"",
+		"		</annotations>",
+		"		<body>",
+		"			<string index = \"1\", text = \"int index;\"/>",
+		"			<string index = \"2\", text = \"String str;\"/>",
+		"			<string index = \"3\", text = \"float f;\"/>",
+		"		</body>",
+		"	</class>",
+		"</classes>"
+	};
+
+	return testList;
+
 	// Создаём файл с названием входного файла и расширением xml
 
 	// Для всех классов
@@ -207,7 +229,7 @@ void selectInterfaceFromTheProgramm(Interface& interface, vector <string>& sourc
 
 }
 
-void selectMethodFromTheProgramm(Methods &method, vector <string> &sourceVector)
+void selectMethodFromTheProgramm(Method &method, vector <string> &sourceVector)
 {
 	// Заглушка
 	sourceVector = { "" };

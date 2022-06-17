@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Arguments
+class Argument
 {
 private:
     string name;
@@ -16,13 +16,13 @@ private:
 
 public:
     // конструкторы
-    Arguments()
+    Argument()
     {
         this->name = "";
         this->type = "";
     }
 
-    Arguments(string name, string type)
+    Argument(string name, string type)
     {
         this->name = name;
         this->type = type;
@@ -52,34 +52,34 @@ public:
     }
 
     // перегрузки оператора срванени€ (равенства)
-    bool operator== (const Arguments &other) const
+    bool operator== (const Argument &other) const
     {
         return (this->name == other.name && this->type == other.type);
     }
 
     // перегрузки оператора срванени€ (неравенства)
-    bool operator!= (const Arguments &other) const
+    bool operator!= (const Argument &other) const
     {
         return !(*this == other);
     }
 };
 
-class Annotations
+class Annotation
 {
 private:
     string name;
-    list <Arguments> arguments;
+    list <Argument> arguments;
 
 public:
     // конструкторы
-    Annotations()
+    Annotation()
     {
         this->name = "";
-        Arguments tmpArguments = Arguments("", "");
+        Argument tmpArguments = Argument("", "");
         this->arguments.push_back(tmpArguments);
     }
 
-    Annotations(string name)
+    Annotation(string name)
     {
         this->name = name;
     }
@@ -97,7 +97,7 @@ public:
     }
 
     // перегрузки оператора срванени€ (равенства)
-    bool operator== (const Annotations& other) const
+    bool operator== (const Annotation& other) const
     {
         bool result = this->name == other.name;
         
@@ -115,13 +115,13 @@ public:
     }
 
     // перегрузки оператора срванени€ (неравенства)
-    bool operator!= (const Annotations& other) const
+    bool operator!= (const Annotation& other) const
     {
         return !(*this == other);
     }
 };
 
-class Methods
+class Method
 {
 private:
     int id;
@@ -129,9 +129,9 @@ private:
     string accessMode;
     string modifier;
     string typeValue;
-    list <Arguments> arguments;
+    list <Argument> arguments;
     list <string> bodyStr;
-    list <Annotations> annotations;
+    list <Annotation> annotations;
 
 public:
     // сеттеры
@@ -162,7 +162,7 @@ public:
 
     void setArguments(string nameArguments, string typeArguments)
     {
-        Arguments tmpArguments = Arguments(nameArguments, typeArguments);
+        Argument tmpArguments = Argument(nameArguments, typeArguments);
         this->arguments.push_back(tmpArguments);
     }
 
@@ -173,7 +173,7 @@ public:
 
     void setAnnatations(string annatationsName)
     {
-        Annotations tmpAnnotations = Annotations(annatationsName);
+        Annotation tmpAnnotations = Annotation(annatationsName);
         this->annotations.push_back(tmpAnnotations);
     }
 
@@ -203,7 +203,7 @@ public:
         return this->typeValue;
     }
 
-    list <Arguments> getArguments()
+    list <Argument> getArguments()
     {
         return this->arguments;
     }
@@ -213,13 +213,13 @@ public:
         return this->bodyStr;
     }
 
-    list <Annotations> getAnnotations()
+    list <Annotation> getAnnotations()
     {
         return this->annotations;
     }
 
     // перегрузки оператора срванени€ (равенства)
-    bool operator== (const Methods& other) const
+    bool operator== (const Method& other) const
     {
         bool result = this->id == other.id;
         result = this->name == other.name && result;
@@ -255,7 +255,7 @@ public:
     }
 
     // перегрузки оператора срванени€ (неравенства)
-    bool operator!= (const Methods & other) const
+    bool operator!= (const Method & other) const
     {
         return !(*this == other);
     }
@@ -270,8 +270,8 @@ private:
     list <string> bodyStr;
     int countMethod;
     int countBodyStr;
-    list <Methods> methods;
-    list <Annotations> annotations;
+    list <Method> methods;
+    list <Annotation> annotations;
 
 public:
     // сеттеры
@@ -307,14 +307,14 @@ public:
 
     void setMethods(string methods)
     {
-        Methods tmpMethods;
+        Method tmpMethods;
         tmpMethods.setName(methods);
         this->methods.push_back(tmpMethods);
     }
 
     void setAnnotations(string annatationsName)
     {
-        Annotations tmpAnnotations = Annotations(annatationsName);
+        Annotation tmpAnnotations = Annotation(annatationsName);
         this->annotations.push_back(tmpAnnotations);
     }
 
@@ -349,12 +349,12 @@ public:
         return this->countBodyStr;
     }
 
-    list <Methods> getMethods()
+    list <Method> getMethods()
     {
         return this->methods;
     }
 
-    list <Annotations> getAnnotations()
+    list <Annotation> getAnnotations()
     {
         return this->annotations;
     }
@@ -402,7 +402,7 @@ public:
     }
 };
 
-class Imports
+class Import
 {
 private:
     int id;
@@ -432,13 +432,13 @@ public:
     }
 
     // перегрузка оператора сравнени€ (равенства)
-    bool operator== (const Imports& other) const
+    bool operator== (const Import& other) const
     {
         return (this->name == other.name);
     }
 
     // перегрузка оператора сравнени€ (неравенства)
-    bool operator!= (const Imports& other) const
+    bool operator!= (const Import& other) const
     {
         return !(*this == other);
     }
@@ -521,7 +521,7 @@ void splitCodeIntoElements();
 /*! ‘ормирует документ xml расширени€
  * \param
  */
-void formingXMLDocumnt();
+list <string> formingXMLDocument(list<Class>&, list<Method>&, list<Import>&, list<Interface>&);
 
 /*! ¬ыдел€ет импорты из кода программы
  * \param
@@ -541,4 +541,4 @@ void selectInterfaceFromTheProgramm(Interface&, vector<string>&);
 /*! ¬ыдел€ет методы из кода программы !!?
  * \param
  */
-void selectMethodFromTheProgramm(Methods&, vector<string>&);
+void selectMethodFromTheProgramm(Method&, vector<string>&);

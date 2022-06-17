@@ -9,7 +9,7 @@ namespace Microsoft {
 		namespace CppUnitTestFramework {
 
 			template<>
-			static std::wstring ToString<Methods>(const Methods& meth) {
+			static std::wstring ToString<Method>(const Method& meth) {
 				return L"Some string representing coordinate.";
 			}
 
@@ -29,9 +29,9 @@ namespace TestselectMethodFromTheProgramm
 										"int id;",
 										"String name",
 										"};" };
-			Methods source;
+			Method source;
 
-			Methods exp;
+			Method exp;
 			vector <string> expVector = { "" };
 			exp.setId(0);
 			exp.setName("");
@@ -61,8 +61,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -95,8 +95,8 @@ namespace TestselectMethodFromTheProgramm
 											"String name",
 											"};"};
 
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;",
 											"String y;",
 											"boolean flag;" };
@@ -132,8 +132,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;",
 											"String y;",
 											"boolean flag;",
@@ -167,8 +167,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -198,8 +198,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -231,8 +231,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -262,8 +262,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -293,8 +293,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -328,8 +328,8 @@ namespace TestselectMethodFromTheProgramm
 											"String name",
 											"};"};
 
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -362,8 +362,8 @@ namespace TestselectMethodFromTheProgramm
 											"String name",
 											"};"};
 
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -394,8 +394,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;" };
 			exp.setId(1);
 			exp.setName("main");
@@ -431,8 +431,8 @@ namespace TestselectMethodFromTheProgramm
 											"}",
 											"String name",
 											"};"};
-			Methods source;
-			Methods exp;
+			Method source;
+			Method exp;
 			vector <string> expVector = { "int i;",
 											"String l;",
 											"boolean flag;",
