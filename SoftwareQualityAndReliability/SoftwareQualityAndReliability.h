@@ -121,126 +121,6 @@ public:
     }
 };
 
-class Class
-{
-private:
-    int id;
-    string name;
-    string accessMode;
-    list <string> bodyStr;
-    int countMethod;
-    int countBodyStr;
-    list <Annotations> annotations;
-
-public:
-    // сеттеры
-    void setId(int id)
-    {
-        this->id = id;
-    }
-
-    void setName(string name)
-    {
-        this->name = name;
-    }
-
-    void setAccessMode(string accessMode)
-    {
-        this->accessMode = accessMode;
-    }
-
-    void setBodyStr(list <string> bodyStr)
-    {
-        this->bodyStr = bodyStr;
-    }
-
-    void setCountMethod(int countMethod)
-    {
-        this->countMethod = countMethod;
-    }
-
-    void setCountBodyStr(int countBodyStr)
-    {
-        this->countBodyStr = countBodyStr;
-    }
-
-    void setAnnotations(string annatationsName)
-    {
-        Annotations tmpAnnotations = Annotations(annatationsName);
-        this->annotations.push_back(tmpAnnotations);
-    }
-
-    // геттеры
-    int getId()
-    {
-        return this->id;
-    }
-
-    string getName()
-    {
-        return this->name;
-    }
-
-    string getAsccessModel()
-    {
-        return this->accessMode;
-    }
-
-    list <string> getBodyStr()
-    {
-        return this->bodyStr;
-    }
-
-    int getCountMethod()
-    {
-        return this->countMethod;
-    }
-
-    int getCountBodyStr()
-    {
-        return this->countBodyStr;
-    }
-
-    list <Annotations> getAnnotations()
-    {
-        return this->annotations;
-    }
-
-    // перегрузки оператора срванения (равенства)
-    bool operator== (const Class& other) const
-    {
-        bool result = this->id == other.id;
-        result = this->name == other.name && result;
-        result = this->accessMode == other.accessMode && result;
-        result = this->countMethod == other.countMethod && result;
-        result = this->countBodyStr == other.countBodyStr && result;
-        
-        result = (this->bodyStr.size() == other.bodyStr.size()) && result;
-        auto iterLeft = this->bodyStr.begin();
-        auto iterRight = other.bodyStr.begin();
-        for (; iterLeft != this->bodyStr.end(); iterLeft++, iterRight++)
-        {
-            result = (*iterLeft == *iterRight) && result;
-        }
-
-        result = this->annotations.size() == other.annotations.size() && result;
-        auto iterLeft1 = this->annotations.begin();
-        auto iterRight1 = other.annotations.begin();
-        for (; iterLeft1 != this->annotations.end(); iterLeft1++, iterRight1++)
-        {
-            result = *iterLeft1 == *iterRight1 && result;
-        }
-
-        return result;
-    }
-
-    // перегрузки оператора срванения (неравенства)
-    bool operator!= (const Class& other) const
-    {
-        return !(*this == other);
-    }
-};
-
 class Methods
 {
 private:
@@ -381,6 +261,147 @@ public:
     }
 };
 
+class Class
+{
+private:
+    int id;
+    string name;
+    string accessMode;
+    list <string> bodyStr;
+    int countMethod;
+    int countBodyStr;
+    list <Methods> methods;
+    list <Annotations> annotations;
+
+public:
+    // сеттеры
+    void setId(int id)
+    {
+        this->id = id;
+    }
+
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    void setAccessMode(string accessMode)
+    {
+        this->accessMode = accessMode;
+    }
+
+    void setBodyStr(string bodyStr)
+    {
+        this->bodyStr.push_back(bodyStr);
+    }
+
+    void setCountMethod(int countMethod)
+    {
+        this->countMethod = countMethod;
+    }
+
+    void setCountBodyStr(int countBodyStr)
+    {
+        this->countBodyStr = countBodyStr;
+    }
+
+    void setMethods(string methods)
+    {
+        Methods tmpMethods;
+        tmpMethods.setName(methods);
+        this->methods.push_back(tmpMethods);
+    }
+
+    void setAnnotations(string annatationsName)
+    {
+        Annotations tmpAnnotations = Annotations(annatationsName);
+        this->annotations.push_back(tmpAnnotations);
+    }
+
+    // геттеры
+    int getId()
+    {
+        return this->id;
+    }
+
+    string getName()
+    {
+        return this->name;
+    }
+
+    string getAsccessModel()
+    {
+        return this->accessMode;
+    }
+
+    list <string> getBodyStr()
+    {
+        return this->bodyStr;
+    }
+
+    int getCountMethod()
+    {
+        return this->countMethod;
+    }
+
+    int getCountBodyStr()
+    {
+        return this->countBodyStr;
+    }
+
+    list <Methods> getMethods()
+    {
+        return this->methods;
+    }
+
+    list <Annotations> getAnnotations()
+    {
+        return this->annotations;
+    }
+
+    // перегрузки оператора срванения (равенства)
+    bool operator== (const Class& other) const
+    {
+        bool result = this->id == other.id;
+        result = this->name == other.name && result;
+        result = this->accessMode == other.accessMode && result;
+        result = this->countMethod == other.countMethod && result;
+        result = this->countBodyStr == other.countBodyStr && result;
+        
+        result = (this->bodyStr.size() == other.bodyStr.size()) && result;
+        auto iterLeft = this->bodyStr.begin();
+        auto iterRight = other.bodyStr.begin();
+        for (; iterLeft != this->bodyStr.end(); iterLeft++, iterRight++)
+        {
+            result = (*iterLeft == *iterRight) && result;
+        }
+
+        result = this->annotations.size() == other.annotations.size() && result;
+        auto iterLeft1 = this->annotations.begin();
+        auto iterRight1 = other.annotations.begin();
+        for (; iterLeft1 != this->annotations.end(); iterLeft1++, iterRight1++)
+        {
+            result = *iterLeft1 == *iterRight1 && result;
+        }
+
+        result = this->methods.size() == other.methods.size() && result;
+        auto iterLeft2 = this->methods.begin();
+        auto iterRight2 = other.methods.begin();
+        for (; iterLeft2 != this->methods.end(); iterLeft2++, iterRight2++)
+        {
+            result = *iterLeft2 == *iterRight2 && result;
+        }
+
+        return result;
+    }
+
+    // перегрузки оператора срванения (неравенства)
+    bool operator!= (const Class& other) const
+    {
+        return !(*this == other);
+    }
+};
+
 class Imports
 {
 private:
@@ -502,27 +523,22 @@ void splitCodeIntoElements();
  */
 void formingXMLDocumnt();
 
-/*! Проверяет на наличие ошибок
- * \param
- */
-void checkingForErrors();
-
 /*! Выделяет импорты из кода программы
  * \param
  */
 void selectImportsFromTheProgramm();
 
-/*! Выделяет классы из кода программы
+/*! Выделяет классы из кода программы ???
  * \param
  */
-void selectClassFromTheProgramm();
+void selectClassFromTheProgramm(Class&, vector<string>&);
 
-/*! Выделяет интерфейсы из кода программы 
+/*! Выделяет интерфейсы из кода программы !!?
  * \param
  */
-void selectInterfaceFromTheProgramm(Interface&, vector <string>&);
+void selectInterfaceFromTheProgramm(Interface&, vector<string>&);
 
 /*! Выделяет методы из кода программы !!?
  * \param
  */
-void selectMethodFromTheProgramm(Methods&, vector <string>&);
+void selectMethodFromTheProgramm(Methods&, vector<string>&);

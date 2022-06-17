@@ -108,11 +108,6 @@ void formingXMLDocumnt()
 	}
 }
 
-void checkingForErrors()
-{
-
-}
-
 void selectImportsFromTheProgramm()
 {
 	// Обнуляем счётчик импортов
@@ -129,8 +124,23 @@ void selectImportsFromTheProgramm()
 
 }
 
-void selectClassFromTheProgramm()
+void selectClassFromTheProgramm(Class& elementClass, vector<string>& sourceCode)
 {
+	// Заглушка 
+	sourceCode = { "" };
+
+	elementClass.setId(0);
+	elementClass.setName("");
+	elementClass.setAccessMode("");
+	elementClass.setCountMethod(0);
+	elementClass.setCountBodyStr(0);
+	elementClass.setMethods("");
+	for (int i = 0; i < sourceCode.size(); i++)
+	{
+		elementClass.setBodyStr(sourceCode[i]);
+	}
+	elementClass.setAnnotations("");
+
 	// Обнуляем счётчик классов
 
 	// Для каждого класса
