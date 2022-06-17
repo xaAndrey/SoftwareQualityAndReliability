@@ -526,7 +526,7 @@ list <string> formingXMLDocument(list<Class>&, list<Method>&, list<Import>&, lis
 /*! Выделяет импорты из кода программы
  * \param
  */
-void selectImportsFromTheProgramm();
+void selectImportsFromTheProgramm(Import&, vector<string>&);
 
 /*! Выделяет классы из кода программы ???
  * \param

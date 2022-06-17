@@ -130,8 +130,12 @@ list <string> formingXMLDocument(list<Class>& listClass, list<Method>& listMetho
 	}
 }
 
-void selectImportsFromTheProgramm()
+void selectImportsFromTheProgramm(Import& importSource, vector<string>& sourceCode)
 {
+	// Заглушка
+	importSource.setId(0);
+	importSource.setName("");
+
 	// Обнуляем счётчик импортов
 
 	// Для каждого import
