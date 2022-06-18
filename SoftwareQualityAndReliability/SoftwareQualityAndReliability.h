@@ -5,6 +5,7 @@
 #include <list>
 #include <iterator>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -511,7 +512,7 @@ public:
 /*! Копирует данные из файла в массив строк !!!
  * \param
  */
-void copyData(string&, list <string>&);
+vector<string> copyData(string&);
 
 /*! Разбиавает код на элементы !!?
  * \param

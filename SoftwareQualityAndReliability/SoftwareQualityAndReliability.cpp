@@ -2,6 +2,16 @@
 
 int main()
 {
+	vector<string> tmp;
+
+	string line = "C:\\Users\\andre\\source\\SoftwareQualityAndReliability\\test.txt";
+	tmp = copyData(line);
+
+	for (auto iter = tmp.begin(); iter != tmp.end(); iter++)
+	{
+		cout << *iter << endl;
+	}
+
 	// Вводим данные с консоли
 	{
 		// Если начальной дирректории не существует
@@ -28,18 +38,28 @@ int main()
 	}
 }
 
-void copyData(string& sourceWay, list <string> &outputList)
+vector<string> copyData(string& sourceWay)
 {
-	// Заглушка
-	outputList= { "" };
 	// Открыть поток + создать указатель
+	vector<string> resultCode;
+	string strCode;
+	ifstream sourceCode;
+	sourceCode.open(sourceWay);
 
-	// Для каждой строки, содеражащийся в файле
+	if (sourceCode.is_open())
 	{
-		// Скопировать строку в массив строк
+		// Для каждой строки, содеражащийся в файле
+		while (getline(sourceCode, strCode))
+		{
+			// Скопировать строку в массив строк
+			resultCode.push_back(strCode);
+		}
 	}
 
 	// Закрыть поток
+	sourceCode.close();
+
+	return resultCode;
 }
 
 void splitCodeIntoElements(list<Class>& sourceClasses, list<Method>& sourceMethods, list<Import>& sourceImports, list<Interface>& sourceInterfaces, vector<string>& sourceCode)

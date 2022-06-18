@@ -17,14 +17,14 @@ namespace TestcopyData
 		TEST_METHOD(EmptyFile)
 		{
 			// Подготовка
-			string sourceWay = "../Test/input1.java";
-			list <string> outputArr;
+			string sourceWay = "C:\\Users\\andre\\source\\SoftwareQualityAndReliability\\Test_copyData\\Test\\input1.java";
+			vector <string> outputArr;
 
-			list <string> expOutputArr;
-			expOutputArr = { "" };
+			vector <string> expOutputArr;
+			expOutputArr = { };
 
 			// Выполнение 
-			copyData(sourceWay, outputArr);
+			outputArr = copyData(sourceWay);
 
 			// Проверка
 			AssertEqualListString(expOutputArr, outputArr);
@@ -33,14 +33,14 @@ namespace TestcopyData
 		TEST_METHOD(FileHaveOneStrWithOneElement)
 		{
 			// Подготовка
-			string sourceWay = "../Test/input2.java";
-			list <string> outputArr;
+			string sourceWay = "C:\\Users\\andre\\source\\SoftwareQualityAndReliability\\Test_copyData\\Test\\input2.java";
+			vector <string> outputArr;
 
-			list <string> expOutputArr;
+			vector <string> expOutputArr;
 			expOutputArr = { "class" };
 
 			// Выполнение 
-			copyData(sourceWay, outputArr);
+			outputArr = copyData(sourceWay);
 
 			// Проверка
 			AssertEqualListString(expOutputArr, outputArr);
@@ -49,10 +49,10 @@ namespace TestcopyData
 		TEST_METHOD(FileHaveSeveralStrWithOneElement)
 		{
 			// Подготовка
-			string sourceWay = "../Test/input3.java";
-			list <string> outputArr;
+			string sourceWay = "C:\\Users\\andre\\source\\SoftwareQualityAndReliability\\Test_copyData\\Test\\input3.java";
+			vector <string> outputArr;
 
-			list <string> expOutputArr;
+			vector <string> expOutputArr;
 			expOutputArr = { "class",
 							"Main",
 							"{",
@@ -60,7 +60,7 @@ namespace TestcopyData
 							"}" };
 
 			// Выполнение 
-			copyData(sourceWay, outputArr);
+			outputArr = copyData(sourceWay);
 
 			// Проверка
 			AssertEqualListString(expOutputArr, outputArr);
@@ -69,14 +69,14 @@ namespace TestcopyData
 		TEST_METHOD(FileHaveOneStrWithSeveralElement)
 		{
 			// Подготовка
-			string sourceWay = "../Test/input4.java";
-			list <string> outputArr;
+			string sourceWay = "C:\\Users\\andre\\source\\SoftwareQualityAndReliability\\Test_copyData\\Test\\input4.java";
+			vector <string> outputArr;
 
-			list <string> expOutputArr;
+			vector <string> expOutputArr;
 			expOutputArr = { "class Main { int }" };
 
 			// Выполнение 
-			copyData(sourceWay, outputArr);
+			outputArr = copyData(sourceWay);
 
 			// Проверка
 			AssertEqualListString(expOutputArr, outputArr);
@@ -85,10 +85,10 @@ namespace TestcopyData
 		TEST_METHOD(FileHaveSeveralStrWithSeveralElement)
 		{
 			// Подготовка
-			string sourceWay = "../Test/input5.java";
-			list <string> outputArr;
+			string sourceWay = "C:\\Users\\andre\\source\\SoftwareQualityAndReliability\\Test_copyData\\Test\\input5.java";
+			vector <string> outputArr;
 
-			list <string> expOutputArr;
+			vector <string> expOutputArr;
 			expOutputArr = { "class Main {",
 							"int main() {",
 							"int value = 6;",
@@ -96,14 +96,14 @@ namespace TestcopyData
 							"}}" };
 
 			// Выполнение 
-			copyData(sourceWay, outputArr);
+			outputArr = copyData(sourceWay);
 
 			// Проверка
 			AssertEqualListString(expOutputArr, outputArr);
 		}
 
 	private:
-		void AssertEqualListString(list <string> &expList, list <string> &sourceList)
+		void AssertEqualListString(vector <string> &expList, vector <string> &sourceList)
 		{
 			Assert::AreEqual(expList.size(), sourceList.size());
 
