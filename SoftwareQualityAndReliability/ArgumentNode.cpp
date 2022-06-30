@@ -19,3 +19,8 @@ string& ArgumentNode::getType() {
 
 	return this->type;
 }
+
+list<string> ArgumentNode::getXMLView()
+{
+
+}

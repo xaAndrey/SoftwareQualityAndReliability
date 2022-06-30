@@ -1,10 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "AbstractNode.h"
 
 using namespace std;
 
-class ArgumentNode {
+class ArgumentNode: public AbstractNode {
 
 private:
 	string name;
@@ -22,5 +23,8 @@ public:
 	// operators
 	bool operator== (const ArgumentNode& other) const;
 	bool operator!= (const ArgumentNode& other) const;
+
+	// abstract method
+	list<string> getXMLView();
 };
 
