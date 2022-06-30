@@ -20,7 +20,7 @@ string& ArgumentNode::getType() {
 	return this->type;
 }
 
-list<string> ArgumentNode::getXMLView()
+list<string>& ArgumentNode::getXMLView()
 {
 	list<string> resultXMLView;
 

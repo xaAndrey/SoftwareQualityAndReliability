@@ -25,6 +25,6 @@ public:
 	bool operator!= (const ArgumentNode& other) const;
 
 	// abstract method
-	list<string> getXMLView();
+	list<string>& getXMLView();
 };
 

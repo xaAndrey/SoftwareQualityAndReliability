@@ -11,63 +11,6 @@
 
 using namespace std;
 
-class Annotation
-{
-private:
-    string name; // »м€ аннотации
-    list <Argument> arguments;
-
-public:
-    // конструкторы
-    Annotation()
-    {
-        this->name = "";
-        Argument tmpArguments = Argument("", "");
-        this->arguments.push_back(tmpArguments);
-    }
-
-    Annotation(string name)
-    {
-        this->name = name;
-    }
-
-    // сеттеры
-    void setName(string name)
-    {
-        this->name = name;
-    }
-
-    // геттеры
-    string getName()
-    {
-        return this->name;
-    }
-
-    // перегрузки оператора срванени€ (равенства)
-    bool operator== (const Annotation& other) const
-    {
-        bool result = this->name == other.name;
-        
-        result = (this->arguments.size() == other.arguments.size()) && result;
-
-        auto iterLeft = this->arguments.begin();
-        auto iterRight = other.arguments.begin();
-
-        for (; iterLeft != this->arguments.end(); iterLeft++, iterRight++)
-        {
-            result = (*iterLeft == *iterRight) && result;
-        }
-
-        return result;
-    }
-
-    // перегрузки оператора срванени€ (неравенства)
-    bool operator!= (const Annotation& other) const
-    {
-        return !(*this == other);
-    }
-};
-
 class Method
 {
 private:

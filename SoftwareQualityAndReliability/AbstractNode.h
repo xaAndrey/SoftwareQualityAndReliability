@@ -8,6 +8,6 @@ using namespace std;
 class AbstractNode {
 
 public:
-	virtual list<string> getXMLView();
+	virtual list<string>& getXMLView();
 };
 
