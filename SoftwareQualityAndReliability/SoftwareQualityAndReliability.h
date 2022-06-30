@@ -68,7 +68,7 @@ public:
 class Annotation
 {
 private:
-    string name;
+    string name; // Имя аннотации
     list <Argument> arguments;
 
 public:
@@ -269,8 +269,6 @@ private:
     string name;
     string accessMode;
     list <string> bodyStr;
-    int countMethod;
-    int countBodyStr;
     list <Method> methods;
     list <Annotation> annotations;
 
@@ -509,37 +507,50 @@ public:
     }
 };
 
-/*! Копирует данные из файла в массив строк !!!
- * \param
+/*! Копирует текст из файла в вектор строк
+ * \param [in] sourceWay - строка пути до считываемого файла
+ * \return - вектор строк с текстом из файла
  */
-vector<string> copyData(string&);
+vector<string> copyData(string& sourceWay);
 
-/*! Разбиавает код на элементы !!?
- * \param
+/*! Разбиавает код на элементы 
+ * \param [out] sourceClasses - список классов
+ * \param [out] sourceMethods - список методов
+ * \param [out] sourceImports - список импортов
+ * \param [out] sourceInterfaces - список интерфейсов
+ * \param [out] sourceCode - заданный текст
  */
-void splitCodeIntoElements(list<Class>&, list<Method>&, list<Import>&, list<Interface>&, vector<string>&);
+void splitCodeIntoElements(list<Class>& sourceClasses, list<Import>& sourceImports, list<Interface>& sourceInterfaces, vector<string>& sourceCode);
 
-/*! Формирует документ xml расширения !!?
- * \param
+/*! Выделяет импорты из кода программы
+ * \param [in] importSource - элемент класса Import
+ * \param [in] sourceCode - заданный текст 
  */
-list <string> formingXMLDocument(list<Class>&, list<Method>&, list<Import>&, list<Interface>&);
+void selectImportsFromTheProgramm(list<Import>& importSource, vector<string>& sourceCode);
 
-/*! Выделяет импорты из кода программы !!?
- * \param
+/*! Выделяет интерфейсы из кода программы 
+ * \param [out] interface - элемент класса Interface
+ * \param [in] sourceCode - заданный текст
  */
-void selectImportsFromTheProgramm(Import&, vector<string>&);
+void selectInterfaceFromTheProgramm(list<Interface>& interfaceSource, vector <string>& sourceVector);
 
-/*! Выделяет классы из кода программы !!?
- * \param
+/*! Выделяет классы из кода программы
+ * \param [out] elementClass - элемент класса Class
+ * \param [in] sourceCode - заданный текст
  */
-void selectClassFromTheProgramm(Class&, vector<string>&);
+void selectClassFromTheProgramm(Class& elementClass, vector<string>& sourceCode);
 
-/*! Выделяет интерфейсы из кода программы !!?
- * \param
+/*! Выделяет методы из кода программы 
+ * \param [out] method - элемент класса Method
+ * \param [in] sourceVector - заданный текст
  */
-void selectInterfaceFromTheProgramm(Interface&, vector<string>&);
+void selectMethodFromTheProgramm(list<Method>& methodSource, vector <string>& sourceCode);
 
-/*! Выделяет методы из кода программы !!?
- * \param
+/*! Формирует документ xml расширения
+ * \param [in] listClass - список классов
+ * \param [in] listMethods - список методов
+ * \param [in] listImports - список импортов
+ * \param [in] listInterfaces - список интерфейса
+ * \return - cписок строк, выходного текста обработанный в формате XML
  */
-void selectMethodFromTheProgramm(Method&, vector<string>&);
+list <string> formingXMLDocument(list<Class>& listClass, list<Method>& listMethods, list<Import>& listImports, list<Interface>& listInterfaces);
