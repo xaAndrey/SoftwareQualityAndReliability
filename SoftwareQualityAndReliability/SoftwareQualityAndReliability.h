@@ -7,63 +7,9 @@
 #include <vector>
 #include <fstream>
 
+#include "ArgumentNode.h"
+
 using namespace std;
-
-class Argument
-{
-private:
-    string name;
-    string type;
-
-public:
-    // конструкторы
-    Argument()
-    {
-        this->name = "";
-        this->type = "";
-    }
-
-    Argument(string name, string type)
-    {
-        this->name = name;
-        this->type = type;
-    }
-
-    // сеттеры
-    void setName(string name)
-    {
-        this->name = name;
-    }
-
-    void setType(string type)
-    {
-        this->type = type;
-    }
-
-
-    //геттеры
-    string getName()
-    {
-        return this->name;
-    }
-
-    string getType()
-    {
-        return this->type;
-    }
-
-    // перегрузки оператора срванения (равенства)
-    bool operator== (const Argument &other) const
-    {
-        return (this->name == other.name && this->type == other.type);
-    }
-
-    // перегрузки оператора срванения (неравенства)
-    bool operator!= (const Argument &other) const
-    {
-        return !(*this == other);
-    }
-};
 
 class Annotation
 {
