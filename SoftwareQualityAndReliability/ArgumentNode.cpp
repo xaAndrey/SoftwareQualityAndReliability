@@ -20,11 +20,7 @@ string& ArgumentNode::getType() {
 	return this->type;
 }
 
-list<string>& ArgumentNode::getXMLView()
+string ArgumentNode::getXMLView()
 {
-	list<string> resultXMLView;
-
-	resultXMLView.push_back("<argument type = \"" + this->getType() + "\", name = \"" + this->getName() + "\"/>");
-
-	return resultXMLView;
+	return ("<argument type = \"" + this->getType() + "\", name = \"" + this->getName() + "\"/>");
 }

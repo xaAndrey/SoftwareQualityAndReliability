@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class ArgumentNode: public AbstractNode {
+class ArgumentNode {
 
 private:
 	string name;
@@ -25,6 +25,6 @@ public:
 	bool operator!= (const ArgumentNode& other) const;
 
 	// abstract method
-	list<string>& getXMLView();
+	string getXMLView();
 };
 

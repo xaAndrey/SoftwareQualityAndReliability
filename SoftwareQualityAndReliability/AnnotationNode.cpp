@@ -10,11 +10,7 @@ string& AnnotationNode::getName() {
 	return this->name;
 }
 
-list<string>& AnnotationNode::getXMLView() {
+string AnnotationNode::getXMLView() {
 
-	list<string> resultXMLView;
-
-	resultXMLView.push_back("<annotation name = \"@" + this->getName() + "\"/>");
-
-	return resultXMLView;
+	return ("<annotation name = \"@" + this->getName() + "\"/>");
 }

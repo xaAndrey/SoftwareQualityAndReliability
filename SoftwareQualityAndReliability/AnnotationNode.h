@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class AnnotationNode: public AbstractNode {
+class AnnotationNode {
 
 private:
 	string name;
@@ -16,6 +16,6 @@ public:
 
 	string& getName();
 
-	list<string>& getXMLView();
+	string getXMLView();
 };
 
