@@ -114,4 +114,6 @@ list<string>& MethodNode::getXMLView() {
 
 	resultXMLView.push_back("\t</body>");
 	resultXMLView.push_back("</method>");
+
+	return resultXMLView;
 }
