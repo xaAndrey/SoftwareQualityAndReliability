@@ -10,8 +10,16 @@ string& ImportNode::getName() {
 	return this->name;
 }
 
-string ImportNode::getXMLView() {
+list<string>& ImportNode::findAndDeleteFromStackNode(list<string>& textCode) {
 
-	return "<import name =\"" + this->getName() + "\"/>"
+	return textCode; // Возвращаем список строк
+}
+
+list<string>& ImportNode::getXMLView() {
+
+	// Создаем временный список строк и присваиваем ему необходимое значение
+	list<string> tmpXMLList = { "<import name =\"" + this->getName() + "\"/>" };
+
+	return tmpXMLList; // Возвращаем список строк
 
 }

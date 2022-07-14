@@ -1,18 +1,25 @@
 #pragma once
 #include <string>
+#include "AbstractNode.h"
 
 using namespace std;
 
-class ImportNode {
+class ImportNode: AbstractNode {
 
 private:
-	string name;
+	string name; // имя импорта
 
 public:
+	// Сеттер
 	void setName(string& name);
 
+	// Геттер
 	string& getName();
 
-	string getXMLView();
+	// Поиск и удаление узлов из общего текста
+	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
+
+	// Составление xml документа
+	list<string>& getXMLView();
 };
 

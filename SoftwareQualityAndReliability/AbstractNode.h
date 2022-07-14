@@ -8,10 +8,15 @@ using namespace std;
 class AbstractNode {
 
 public:
-	//create virrtual TREE
+	/*! Create virrtual TREE
+	*	param[in] textCode - Исходный текст программы
+	*	return - список строк, которые остались после удаления
+	*/
 	virtual list<string>& findAndDeleteFromStackNode(list<string>& textCode);
 
-	//crate XML text
+	/*! Сreate XML text
+	*	return - Текст в XML формате, который соответствует определённому 
+	*/
 	virtual list<string>& getXMLView();
 };
 
