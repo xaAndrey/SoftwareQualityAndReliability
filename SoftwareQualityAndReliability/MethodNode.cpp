@@ -71,6 +71,10 @@ list<ArgumentNode>& MethodNode::getArguments() {
 	return this->arguments;
 }
 
+list<string>& MethodNode::findAndDeleteFromStackNode(list<string>& textCode) {
+	// TODO - добавить реализацию
+	return textCode; // Возвращаем список строк
+}
 
 list<string>& MethodNode::getXMLView() {
 

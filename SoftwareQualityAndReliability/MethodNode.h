@@ -1,25 +1,19 @@
 #pragma once
-#include <iostream>
-#include <list>
-#include <string>
 #include "AbstractNode.h"
-#include "AnnotationNode.h"
-#include "ArgumentNode.h"
-
-using namespace std;
 
 class MethodNode: public AbstractNode {
 
 private:
-	string name;
-	string accessMode;
-	string modifier;
-	string type;
-	list<string> bodyStr;
-	list<AnnotationNode> annotations;
-	list<ArgumentNode> arguments;
+	string name; // Имя метода
+	string accessMode; // Модификатор доступа метода
+	string modifier; // Модификатор метода
+	string type; // Тип метода
+	list<string> bodyStr; // Строки тела метода
+	list<AnnotationNode> annotations; // Список аннотаций метода
+	list<ArgumentNode> arguments; // Список аргументов метода
 
 public:
+	// Сеттеры
 	void setName(string& name);
 	void setAccessMode(string& accessMode);
 	void setModifier(string& modifier);
@@ -28,6 +22,7 @@ public:
 	void setAnnotations(list<AnnotationNode>& annotations);
 	void setArguments(list<ArgumentNode> arguments);
 
+	// Геттеры
 	string& getName();
 	string& getAccessMode();
 	string& getModifier();
@@ -36,7 +31,10 @@ public:
 	list<AnnotationNode>& getAnnotations();
 	list<ArgumentNode>& getArguments();
 
-	list<string>& getXMLView();
+	// Поиск и удаление узлов из общего текста
+	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
 
+	// Составление xml документа
+	list<string>& getXMLView();
 };
 
