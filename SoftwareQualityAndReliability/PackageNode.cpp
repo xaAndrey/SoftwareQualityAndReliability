@@ -1,5 +1,13 @@
 #include "PackageNode.h"
 
+PackageNode::PackageNode() {
+
+}
+
+PackageNode::PackageNode(string& name) {
+	this->name = name;
+}
+
 void PackageNode::setName(string& name) {
 	this->name = name;
 }
@@ -9,6 +17,7 @@ string& PackageNode::getName() {
 }
 
 list<string>& PackageNode::findAndDeleteFromStackNode(list<string>& textCode) {
+	// TODO - Добавить реализацию
 	return textCode; // Вернуть список строк
 }
 

@@ -1,5 +1,13 @@
 #include "ImportNode.h"
 
+ImportNode::ImportNode() {
+
+}
+
+ImportNode::ImportNode(string& name) {
+	this->name = name;
+}
+
 void ImportNode::setName(string& name) {
 	
 	this->name = name;
@@ -11,7 +19,7 @@ string& ImportNode::getName() {
 }
 
 list<string>& ImportNode::findAndDeleteFromStackNode(list<string>& textCode) {
-
+	// TODO - добавить реализацию
 	return textCode; // Возвращаем список строк
 }
 

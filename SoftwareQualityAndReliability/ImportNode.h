@@ -7,6 +7,10 @@ private:
 	string name; // имя импорта
 
 public:
+	// Конструкторы
+	ImportNode();
+	ImportNode(string& name);
+
 	// Сеттер
 	void setName(string& name);
 

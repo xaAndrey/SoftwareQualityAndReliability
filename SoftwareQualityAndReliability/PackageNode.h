@@ -7,6 +7,10 @@ private:
 	string name; // имя пакета
 
 public:
+	// Конструкторы
+	PackageNode();
+	PackageNode(string& name);
+
 	// Сеттер
 	void setName(string& name);
 
