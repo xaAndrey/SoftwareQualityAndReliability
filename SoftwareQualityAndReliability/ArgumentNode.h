@@ -1,15 +1,11 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include "AbstractNode.h"
 
-using namespace std;
-
-class ArgumentNode {
+class ArgumentNode: AbstractNode {
 
 private:
-	string name;
-	string type;
+	string name; // Имя аргумента
+	string type; // Тип значения аргумента
 
 public:
 	// setters
@@ -20,11 +16,10 @@ public:
 	string& getName();
 	string& getType();
 
-	// operators
-	bool operator== (const ArgumentNode& other) const;
-	bool operator!= (const ArgumentNode& other) const;
+	// Поиск и удаление узлов из общего текста
+	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
 
-	// abstract method
-	string getXMLView();
+	// Составление xml документа
+	list<string>& getXMLView();
 };
 

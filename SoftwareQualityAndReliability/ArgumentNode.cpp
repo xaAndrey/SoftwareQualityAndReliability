@@ -20,7 +20,13 @@ string& ArgumentNode::getType() {
 	return this->type;
 }
 
-string ArgumentNode::getXMLView()
-{
-	return ("<argument type = \"" + this->getType() + "\", name = \"" + this->getName() + "\"/>");
+list<string>& findAndDeleteFromStackNode(list<string>& textCode) {
+	// TODO - Добавить реализацию
+	return textCode;
+}
+
+list<string>& getXMLView() {
+	list<string> tmpXMLList = "<argument type = \"" + this->getType() + 
+								"\", name = \"" + this->getName() + "\"/>";
+	return tmpXMLList;
 }
