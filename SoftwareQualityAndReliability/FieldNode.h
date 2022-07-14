@@ -1,25 +1,34 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "AbstractNode.h"
 
-using namespace std;
-
-class FieldNode {
+class FieldNode: AbstractNode {
 
 private:
-	string accessMode;
-	string name;
-	string value;
+	string accessMode; // Модификатор доступа поля
+	string type; // Тип значения поля
+	string name; // Имя поля
+	string value; // Значения поля
+	list<AnnotationNode> annotations; // Список аннотаций поля
 
 public:
-	void setAccessMode(string accessMode);
-	void setName(string name);
-	void setValue(string value);
+	// Сеттеры
+	void setAccessMode(string& accessMode);
+	void setType(string& type);
+	void setName(string& name);
+	void setValue(string& value);
+	void setAnnotations(list<AnnotationNode>& annotations);
+	
+	// Геттеры
+	string& getAccessMode();
+	string& getType();
+	string& getName();
+	string& getValue();
+	list<AnnotationNode>& getAnnotations();
 
-	string getAccessMode();
-	string getName();
-	string getValue();
+	// Поиск и удаление узлов из общего текста
+	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
 
-	string getXMLView();
+	// Составление xml документа
+	list<string>& getXMLView();
 };
 
