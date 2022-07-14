@@ -1,10 +1,10 @@
 #pragma once
 #include "AbstractNode.h"
 
-class ImportNode: AbstractNode {
+class PackageNode: AbstractNode{
 
 private:
-	string name; // имя импорта
+	string name; // имя пакета
 
 public:
 	// Сеттер
@@ -16,7 +16,7 @@ public:
 	// Поиск и удаление узлов из общего текста
 	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
 
-	// Составление xml документа
+	// Состваление XML текста
 	list<string>& getXMLView();
 };
 
