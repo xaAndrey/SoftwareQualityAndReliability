@@ -42,11 +42,12 @@ list<MethodNode>& InterfaceNode::getMethods() {
 
 list<string>& InterfaceNode::findAndDeleteFromStackNode(list<string>& textCode) {
 	// TODO - Добавить реализацию
-	return textCode;
+	return textCode; // Вернуть список строк
 }
 
 list<string>& InterfaceNode::getXMLView() {
 	// TODO - Добавить реализацию
+	// Создаем временный список строк и присваиваем ему необходимое значение
 	list<string> tmpXMLList = { "" };
-	return tmpXMLList;
+	return tmpXMLList; // Вернуть список строк
 }

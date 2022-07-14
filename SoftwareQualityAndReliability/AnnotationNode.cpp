@@ -10,7 +10,13 @@ string& AnnotationNode::getName() {
 	return this->name;
 }
 
-string AnnotationNode::getXMLView() {
+list<string>& AnnotationNode::findAndDeleteFromStackNode(list<string>& textCode) {
+	// TODO - Добавить реализацию
+	return textCode; // Вернуть список строк
+}
 
-	return ("<annotation name = \"@" + this->getName() + "\"/>");
+list<string>& AnnotationNode::getXMLView() {
+	// Создаем временный список строк и присваиваем ему необходимое значение
+	list<string> tmpXMLList = { "<annotation name = \"@" + this->getName() + "\"/>" };
+	return tmpXMLList; // Вернуть список строк
 }

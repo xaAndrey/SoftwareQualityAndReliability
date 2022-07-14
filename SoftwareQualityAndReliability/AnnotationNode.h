@@ -1,21 +1,23 @@
 #pragma once
-#include <iostream>
-#include <list>
-#include <string>
 #include "AbstractNode.h"
 
-using namespace std;
 
-class AnnotationNode {
+class AnnotationNode: AbstractNode {
 
 private:
-	string name;
+	string name; // имя аннотации
 
 public:
+	// Сеттер
 	void setName(string& name);
 
+	// Геттер
 	string& getName();
 
-	string getXMLView();
+	// Поиск и удаление узлов из общего текста
+	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
+
+	// Составление xml документа
+	list<string>& getXMLView();
 };
 
