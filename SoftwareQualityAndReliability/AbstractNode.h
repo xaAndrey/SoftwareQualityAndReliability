@@ -6,6 +6,7 @@
 #include "AnnotationNode.h"
 #include "ArgumentNode.h"
 #include "ClassNode.h"
+#include "ConstructorNode.h"
 #include "FieldNode.h"
 #include "ImportNode.h"
 #include "InterfaceNode.h"
