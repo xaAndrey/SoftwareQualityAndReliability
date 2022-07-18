@@ -25,9 +25,9 @@ list<string>& findAndDeleteFromStackNode(list<string>& textCode) {
 	return textCode;
 }
 
-list<string>& getXMLView() {
-	list<string> tmpXMLList = "<argument type = \"" + this->getType() + 
-								"\", name = \"" + this->getName() + "\"/>";
+list<string>& ArgumentNode::getXMLView() {
+	list<string> tmpXMLList = { "<argument type = \"" + this->getType() +
+								"\", name = \"" + this->getName() + "\"/>" };
 	return tmpXMLList;
 }
 
