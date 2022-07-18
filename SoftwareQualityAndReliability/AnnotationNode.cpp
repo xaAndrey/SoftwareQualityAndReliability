@@ -49,7 +49,6 @@ list<string>& AnnotationNode::getXMLView() {
 }
 
 list<string> AnnotationNode::createNodeView() {
-	// TODO - добавить реализацию
-	list<string> tmpViewList;
-	return tmpViewList;
+	list<string> tmpViewList = { this->getName() }; // Создаем список строк с именем аннотации
+	return tmpViewList; // Вернуть списое строк
 }
