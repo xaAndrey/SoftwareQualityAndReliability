@@ -12,6 +12,7 @@
 #include "InterfaceNode.h"
 #include "MethodNode.h"
 #include "PackageNode.h"
+#include <regex>
 
 using namespace std;
 
@@ -32,6 +33,6 @@ public:
 	/*! Create view virtual Tree
 	*	
 	*/
-	virtual list<string>& createNodeView();
+	virtual list<string> createNodeView();
 };
 
