@@ -50,3 +50,9 @@ list<string>& ImportNode::getXMLView() {
 	return tmpXMLList; // Возвращаем список строк
 
 }
+
+list<string> MainNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

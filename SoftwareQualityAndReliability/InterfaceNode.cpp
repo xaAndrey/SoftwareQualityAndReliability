@@ -51,3 +51,9 @@ list<string>& InterfaceNode::getXMLView() {
 	list<string> tmpXMLList = { "" };
 	return tmpXMLList; // Вернуть список строк
 }
+
+list<string> InterfaceNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

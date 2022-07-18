@@ -49,3 +49,9 @@ list<string>& ConstructorNode::getXMLView() {
 	return tmpXMLList; // Возвращаем список строк
 
 }
+
+list<string> ConstructorNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

@@ -48,5 +48,8 @@ public:
 
 	// Составление xml документа
 	list<string>& getXMLView();
+
+	// Составления визуализации виртуального дерева
+	list<string> createNodeView();
 };
 

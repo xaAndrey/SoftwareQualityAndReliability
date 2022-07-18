@@ -121,3 +121,9 @@ list<string>& MethodNode::getXMLView() {
 
 	return resultXMLView;
 }
+
+list<string> MethodNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

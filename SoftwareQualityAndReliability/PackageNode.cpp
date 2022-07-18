@@ -27,3 +27,9 @@ list<string>& PackageNode::getXMLView() {
 
 	return tmpXMLList; // Возвращаем список строк
 }
+
+list<string> FieldNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

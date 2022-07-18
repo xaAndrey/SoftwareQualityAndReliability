@@ -145,3 +145,9 @@ list<string>& ClassNode::getXMLView() {
 
 	return resultXMLView;
 }
+
+list<string> ClassNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

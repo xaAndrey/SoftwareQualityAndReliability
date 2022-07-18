@@ -22,5 +22,8 @@ public:
 
 	// Состваление XML текста
 	list<string>& getXMLView();
+
+	// Составления визуализации виртуального дерева
+	list<string> createNodeView();
 };
 

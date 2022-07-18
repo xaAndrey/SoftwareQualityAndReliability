@@ -20,3 +20,9 @@ list<string>& AnnotationNode::getXMLView() {
 	list<string> tmpXMLList = { "<annotation name = \"@" + this->getName() + "\"/>" };
 	return tmpXMLList; // Вернуть список строк
 }
+
+list<string> AnnotationNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

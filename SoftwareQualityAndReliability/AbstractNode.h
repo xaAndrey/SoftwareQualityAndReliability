@@ -28,5 +28,10 @@ public:
 	*	return - Текст в XML формате, который соответствует определённому 
 	*/
 	virtual list<string>& getXMLView();
+
+	/*! Create view virtual Tree
+	*	
+	*/
+	virtual list<string>& createNodeView();
 };
 

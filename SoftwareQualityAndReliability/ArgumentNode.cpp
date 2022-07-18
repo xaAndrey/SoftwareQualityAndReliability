@@ -30,3 +30,9 @@ list<string>& getXMLView() {
 								"\", name = \"" + this->getName() + "\"/>";
 	return tmpXMLList;
 }
+
+list<string> ArgumentNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}

@@ -31,3 +31,9 @@ list<string>& ImportNode::getXMLView() {
 	return tmpXMLList; // Возвращаем список строк
 
 }
+
+list<string> ImportNode::createNodeView() {
+	// TODO - добавить реализацию
+	list<string> tmpViewList;
+	return tmpViewList;
+}
