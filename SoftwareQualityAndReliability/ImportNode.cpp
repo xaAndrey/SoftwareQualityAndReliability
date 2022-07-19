@@ -51,6 +51,6 @@ list<string>& ImportNode::getXMLView() {
 
 list<string> ImportNode::createNodeView() {
 	// TODO - добавить реализацию
-	list<string> tmpViewList;
+	list<string> tmpViewList = { this->getName() }; // Создаем список с именем импорта
 	return tmpViewList;
 }
