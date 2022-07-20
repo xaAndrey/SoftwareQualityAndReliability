@@ -114,7 +114,6 @@ list<string>& FieldNode::getXMLView() {
 }
 
 list<string> FieldNode::createNodeView() {
-	// TODO - добавить реализацию
-	list<string> tmpViewList;
+	list<string> tmpViewList = { "field - " + this->getName() }; // Создаем список с именем поля
 	return tmpViewList;
 }
