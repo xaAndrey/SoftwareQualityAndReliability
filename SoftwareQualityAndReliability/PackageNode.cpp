@@ -17,7 +17,6 @@ string& PackageNode::getName() {
 }
 
 list<string>& PackageNode::findAndDeleteFromStackNode(list<string>& textCode) {
-	// TODO - Добавить реализацию
 	auto iterTextCode = textCode.begin(); // Создаем итератор, на начало списка
 
 	// Для всех элементов списка
@@ -47,7 +46,6 @@ list<string>& PackageNode::getXMLView() {
 }
 
 list<string> FieldNode::createNodeView() {
-	// TODO - добавить реализацию
-	list<string> tmpViewList;
+	list<string> tmpViewList = { this->getName() }; // Создаем список с именем импорта
 	return tmpViewList;
 }
