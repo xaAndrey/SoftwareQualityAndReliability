@@ -20,8 +20,24 @@ string& ArgumentNode::getType() {
 	return this->type;
 }
 
-list<string>& findAndDeleteFromStackNode(list<string>& textCode) {
-	// TODO - Добавить реализацию
+list<string>& ArgumentNode::findAndDeleteFromStackNode(list<string>& textCode) {
+	string sourceStr = *textCode.begin();
+	int indexStartType = 0;
+	int indexEndType = sourceStr.find(' ');
+	int lengthType = indexEndType - indexStartType + 1;
+	string tmpStr = sourceStr.substr(indexStartType, lengthType);
+	this->setType(tmpStr);
+
+	int indexStartName = indexEndType + 1;
+	int indexEndName = sourceStr.find(',', indexStartName);
+	if (indexEndName == string::npos) {
+		indexEndName = sourceStr.find(')', indexStartName);
+	}
+	int lengthName = indexEndName - indexStartName + 1;
+	tmpStr.clear();
+	tmpStr = sourceStr.substr(indexStartName, lengthName);
+	this->setName(tmpStr);
+
 	return textCode;
 }
 
