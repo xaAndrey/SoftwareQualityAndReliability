@@ -48,7 +48,6 @@ list<string>& ArgumentNode::getXMLView() {
 }
 
 list<string> ArgumentNode::createNodeView() {
-	// TODO - добавить реализацию
-	list<string> tmpViewList;
+	list<string> tmpViewList = { "argument - " + this->getName() }; // Создаем список с именем аргумента
 	return tmpViewList;
 }
