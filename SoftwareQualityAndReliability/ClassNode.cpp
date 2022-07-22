@@ -90,10 +90,7 @@ list<MethodNode>& ClassNode::getMethods() {
 	return this->methods;
 }
 
-list<string>& ClassNode::findAndDeleteFromStackNode(list<string>& textCode) {
-	// TODO - добавить реализацию
-	return textCode; // Возвращаем список строк
-}
+// TODO написать реализацию метода поиска узла внутри тела
 
 list<string>& ClassNode::getXMLView() {
 

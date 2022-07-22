@@ -17,9 +17,6 @@ public:
 	// Геттер
 	string& getName();
 
-	// Поиск и удаление узлов из общего текста
-	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
-
 	// Состваление XML текста
 	list<string>& getXMLView();
 

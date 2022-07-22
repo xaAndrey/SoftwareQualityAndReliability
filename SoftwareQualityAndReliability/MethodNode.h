@@ -31,8 +31,7 @@ public:
 	list<AnnotationNode>& getAnnotations();
 	list<ArgumentNode>& getArguments();
 
-	// Поиск и удаление узлов из общего текста
-	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
+	// TODO написать объявления метода поиска узла внутри тела
 
 	// Составление xml документа
 	list<string>& getXMLView();

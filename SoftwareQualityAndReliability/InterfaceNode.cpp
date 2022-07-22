@@ -40,10 +40,7 @@ list<MethodNode>& InterfaceNode::getMethods() {
 	return this->methods;
 }
 
-list<string>& InterfaceNode::findAndDeleteFromStackNode(list<string>& textCode) {
-	// TODO - Добавить реализацию
-	return textCode; // Вернуть список строк
-}
+// TODO написать реализацию метода поиска узла внутри тела
 
 list<string>& InterfaceNode::getXMLView() {
 	// TODO - Добавить реализацию

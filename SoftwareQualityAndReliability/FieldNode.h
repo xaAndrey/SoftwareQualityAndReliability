@@ -25,9 +25,6 @@ public:
 	string& getValue();
 	list<AnnotationNode>& getAnnotations();
 
-	// Поиск и удаление узлов из общего текста
-	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
-
 	// Составление xml документа
 	list<string>& getXMLView();
 

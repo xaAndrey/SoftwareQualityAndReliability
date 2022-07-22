@@ -6,7 +6,6 @@
 #include "AnnotationNode.h"
 #include "ArgumentNode.h"
 #include "ClassNode.h"
-#include "ConstructorNode.h"
 #include "FieldNode.h"
 #include "ImportNode.h"
 #include "InterfaceNode.h"
@@ -19,11 +18,10 @@ using namespace std;
 class AbstractNode {
 
 public:
-	/*! Create virrtual TREE
-	*	param[in] textCode - Исходный текст программы
-	*	return - список строк, которые остались после удаления
+	/*! Find Nodes
+	*	param[in] textCode - текст, в котором содержатся узлы
 	*/
-	virtual list<string>& findAndDeleteFromStackNode(list<string>& textCode);
+	void findNode(list<string>& textCode);
 
 	/*! Сreate XML text
 	*	return - Текст в XML формате, который соответствует определённому 

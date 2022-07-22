@@ -34,11 +34,7 @@ list<ClassNode> MainNode::getClasses() {
 	return this->classes;
 }
 
-// Поиск и удаление узлов из общего текста
-list<string>& ImportNode::findAndDeleteFromStackNode(list<string>& textCode) {
-	// TODO - добавить реализацию
-	return textCode; // Возвращаем список строк
-}
+// TODO написать реализацию метода поиска узла внутри тела
 
 // Составление xml документа
 list<string>& ImportNode::getXMLView() {

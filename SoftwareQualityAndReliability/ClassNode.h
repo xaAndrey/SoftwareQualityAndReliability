@@ -13,7 +13,6 @@ private:
 	list<ClassNode> classes; // Список классов класса
 	list<InterfaceNode> interfaces; // Список интерфейсов класса
 	list<FieldNode> fields; // список полей класса
- 	list<ConstructorNode> constructors; // список полей класса
 	list<MethodNode> methods; // список методов класса 
 
 public:
@@ -27,7 +26,6 @@ public:
 	void setClasses(list<ClassNode>& classes);
 	void setInteraces(list<InterfaceNode>& interfaces);
 	void setFields(list<FieldNode>& fields);
-	void setConstructors(list<ConstructorNode>& constructors);
 	void setMethods(list<MethodNode>& methods);
 
 	// Getters
@@ -40,11 +38,9 @@ public:
 	list<ClassNode>& getClasses();
 	list<InterfaceNode>& getInterfaces();
 	list<FieldNode>& getFields();
-	list<ConstructorNode>& getConstructors();
 	list<MethodNode>& getMethods();
 
-	// Поиск и удаление узлов из общего текста
-	list<string>& findAndDeleteFromStackNode(list<string>& textCode);
+	// TODO написать объявления метода поиска узла внутри тела
 
 	// Составление xml документа
 	list<string>& getXMLView();
